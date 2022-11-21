@@ -1,0 +1,31 @@
+﻿<Window x:Class="passwordmanager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:passwordmanager"
+        mc:Ignorable="d"
+        Title="Password Manager" Height="350" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="353*"/>
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="129" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Source="/Resources/Images/security.png" Grid.ColumnSpan="2"/>
+        <Label Content="Web Site" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox Name="txtWebsite"  HorizontalAlignment="Left" Margin="109,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="218" Grid.Column="1"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="47,68,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox Name="txtPassword" Grid.Column="1" HorizontalAlignment="Left" Margin="109,72,0,0" TextWrapping="Wrap" Text="{Binding CurrentGen.Generated}" VerticalAlignment="Top" Width="145"/>
+        <Button Name="btnGenerate" Grid.Column="1" Content="Generate" HorizontalAlignment="Left" Margin="259,71,0,0" VerticalAlignment="Top" Width="68" Click="Button_Click_Generate"/>
+        <Button Name="btnSave" Grid.Column="1" Content="Save" HorizontalAlignment="Left" Margin="109,105,0,0" VerticalAlignment="Top" Width="218" Click="Button_Click_Save"/>
+        <DataGrid Name="datam" AutoGenerateColumns="False" Margin="10,144,10,10" Background="Transparent" CanUserAddRows="False" SelectionUnit="Cell" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Id" Header="Id" Width="100" CanUserResize="False" Visibility="Hidden" Binding="{Binding Path=Id}"/>
+
+
+                <DataGridTextColumn x:Name="Website" Header="Website" Width="*" MinWidth="20" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=Website}" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="Password" Header="Password" Width="150" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=Password}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
