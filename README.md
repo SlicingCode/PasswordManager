@@ -1,2 +1,2 @@
 # PasswordManager
-Password manager
+Password manager for storing passwords from any subsribed websites
