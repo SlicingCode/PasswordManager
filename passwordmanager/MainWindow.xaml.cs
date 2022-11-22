@@ -34,8 +34,9 @@ namespace passwordmanager
         public MainWindow()
         {
             InitializeComponent();
+            GetData();
             _generatedPW = new GeneratePW();
-            DataContext= _generatedPW;
+            
         }
 
         public void mycon()
@@ -50,6 +51,7 @@ namespace passwordmanager
             try
             {
                 _generatedPW.CurrentGen.Generated = _generatedPW.CurrentGen.Generated;
+                DataContext = _generatedPW;
             }
             catch (Exception ex)
             {
